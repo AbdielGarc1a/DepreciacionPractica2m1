@@ -304,7 +304,7 @@ namespace Infraestructure.Repository
             }
         }
 
-        //TODO Add Update and Delete method
+
         public bool Delete<T>(T t)
         {
             try
@@ -313,7 +313,7 @@ namespace Infraestructure.Repository
                 int index = BinarySearch(id);
                 if (id < 0)
                 {
-                    //aqui puede retornar false
+                  
                     throw new ArgumentException("No existe un objeto con ese id");
                 }
                 using (BinaryReader brHeader = new BinaryReader(HeaderStream))
@@ -322,27 +322,20 @@ namespace Infraestructure.Repository
                     int n = brHeader.ReadInt32();
                     if (n <= 0)
                     {
-                        //aqui puede retornar false
                         throw new Exception("No existen datos para eliminar");
                     }
                     int k = brHeader.ReadInt32();
-                    //verificando si el que se elimina es el ultimo
                     k = (k == id) ? k - 1 : k;
 
                     using (BinaryWriter tempBhWriter = new BinaryWriter(TemporalHeaderStream))
                     {
                         tempBhWriter.Write(--n);
-                        //brHeader.BaseStream.Seek(0, SeekOrigin.End);
-                        //int lastId = brHeader.ReadInt32();
                         tempBhWriter.Write(k);
                         for (int i = 0; i < (brHeader.BaseStream.Length / 4 - 2); i++)
                         {
-                            //obtiene el id 
                             int idActual = brHeader.ReadInt32();
                             if (idActual != id)
                             {
-                                //TODO: Agregar logica del escribir en el temporal
-                                //revisar esta lina
                                 tempBhWriter.Write(idActual);
                             }
                         }
@@ -350,13 +343,11 @@ namespace Infraestructure.Repository
                     }
                 }
                 File.Delete($"{fileName}.hd");
-                //ver si no da error
                 File.Move($"{temporal}.hd", $"{fileName}.hd");
                 return true;
             }
             catch (Exception)
             {
-                //throw new ArgumentException("El objeto no cuenta con la propiedad id");
                 throw;
             }
         }
@@ -366,14 +357,14 @@ namespace Infraestructure.Repository
             int id;
             try
             {
-                //si no encuentra la propiedad manda un argumentnullexception
+       
                 id = (int)t.GetType().GetProperty("Id").GetValue(t);
                 int index = BinarySearch(id);
                 if (index < 0)
                 {
                     throw new ArgumentException($"No se encontro un objeto con el Id: {id}");
                 }
-                //al inicializarlo lo puedo cambiar para la otra data for overwrite
+       
                 using (BinaryWriter bwData = new BinaryWriter(DataStream))
                 {
                     long posd = index * size;
@@ -387,7 +378,7 @@ namespace Infraestructure.Repository
 
                         if (type.IsGenericType)
                         {
-                            //TODO: Implementar para generico
+                           
                             continue;
                         }
                         if (type == typeof(int))
@@ -428,7 +419,7 @@ namespace Infraestructure.Repository
             }
             catch (Exception)
             {
-                //throw new ArgumentException($"El objeto {t.GetType().Name} no contiene la propiedad Id");
+               
                 throw;
             }
         }
@@ -452,14 +443,10 @@ namespace Infraestructure.Repository
                     }
                     if (datoBuscado < valorCentral)
                     {
-                        //brHeader.BaseStream.Seek(-4, SeekOrigin.Current);
-                        //fin = brHeader.Read();
                         fin = indiceCentral - 1;
                     }
                     else
                     {
-                        //brHeader.BaseStream.Seek(4, SeekOrigin.Current);
-                        //inicio = brHeader.Read();
                         inicio = indiceCentral + 1;
                     }
                 }

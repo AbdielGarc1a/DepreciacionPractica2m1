@@ -16,16 +16,11 @@ namespace practicaDepreciacion
     {
         IActivoServices activoServices;
         private int idSeleccionado;
-        int Posicion;
+       
         public Form1(IActivoServices ActivoServices)
         {
             this.activoServices = ActivoServices;
             InitializeComponent();
-        }
-
-        private void txtNombre_KeyUp(object sender, KeyEventArgs e)
-        {
-           
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -35,9 +30,7 @@ namespace practicaDepreciacion
                 e.Handled = true;
                 MessageBox.Show("No se puede numeros");
             }
-        }
-
-    
+        }    
 
         private void txtValor_KeyPress_1(object sender, KeyPressEventArgs e)
         {
@@ -109,6 +102,7 @@ namespace practicaDepreciacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             idSeleccionado = dataGridView1.CurrentRow.Index;
             txtNombre.Text = dataGridView1[1, idSeleccionado].Value.ToString();
             txtValor.Text = dataGridView1[2, idSeleccionado].Value.ToString();
@@ -126,16 +120,12 @@ namespace practicaDepreciacion
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             idSeleccionado = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            MessageBox.Show(idSeleccionado.ToString());
+          
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                FrmDepreciacion depreciacion = new FrmDepreciacion(activoServices.Read()[e.RowIndex]);
-                depreciacion.ShowDialog();
-            }
+    
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -153,8 +143,9 @@ namespace practicaDepreciacion
 
             limpiar();
 
-            txtNombre.Focus();
         }
+
+    
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
