@@ -47,19 +47,19 @@ namespace practicaDepreciacion
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtVidaU = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtValorR = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textEmail = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -80,10 +80,10 @@ namespace practicaDepreciacion
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textEmail);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
@@ -91,11 +91,11 @@ namespace practicaDepreciacion
             this.groupBox1.Controls.Add(this.panelMenu);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.txtVidaU);
+            this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtValor);
+            this.groupBox1.Controls.Add(this.txtCedula);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtValorR);
+            this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Nombre);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -279,6 +279,7 @@ namespace practicaDepreciacion
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.Size = new System.Drawing.Size(661, 235);
             this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // txtNombre
             // 
@@ -287,12 +288,12 @@ namespace practicaDepreciacion
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 1;
             // 
-            // txtVidaU
+            // txtDireccion
             // 
-            this.txtVidaU.Location = new System.Drawing.Point(551, 209);
-            this.txtVidaU.Name = "txtVidaU";
-            this.txtVidaU.Size = new System.Drawing.Size(100, 20);
-            this.txtVidaU.TabIndex = 4;
+            this.txtDireccion.Location = new System.Drawing.Point(551, 209);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(100, 20);
+            this.txtDireccion.TabIndex = 4;
             // 
             // label4
             // 
@@ -303,12 +304,12 @@ namespace practicaDepreciacion
             this.label4.TabIndex = 8;
             this.label4.Text = "Direccion";
             // 
-            // txtValor
+            // txtCedula
             // 
-            this.txtValor.Location = new System.Drawing.Point(332, 213);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(100, 20);
-            this.txtValor.TabIndex = 2;
+            this.txtCedula.Location = new System.Drawing.Point(332, 213);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.TabIndex = 2;
             // 
             // label3
             // 
@@ -319,12 +320,12 @@ namespace practicaDepreciacion
             this.label3.TabIndex = 7;
             this.label3.Text = "Apellido";
             // 
-            // txtValorR
+            // txtApellido
             // 
-            this.txtValorR.Location = new System.Drawing.Point(551, 145);
-            this.txtValorR.Name = "txtValorR";
-            this.txtValorR.Size = new System.Drawing.Size(100, 20);
-            this.txtValorR.TabIndex = 3;
+            this.txtApellido.Location = new System.Drawing.Point(551, 145);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 3;
             // 
             // label2
             // 
@@ -363,12 +364,12 @@ namespace practicaDepreciacion
             this.label5.TabIndex = 18;
             this.label5.Text = "Telefono";
             // 
-            // textBox1
+            // txtTelefono
             // 
-            this.textBox1.Location = new System.Drawing.Point(772, 209);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtTelefono.Location = new System.Drawing.Point(772, 209);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.TabIndex = 17;
             // 
             // pictureBox6
             // 
@@ -389,12 +390,12 @@ namespace practicaDepreciacion
             this.label6.TabIndex = 21;
             this.label6.Text = "E-mail";
             // 
-            // textBox2
+            // textEmail
             // 
-            this.textBox2.Location = new System.Drawing.Point(772, 145);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 20;
+            this.textEmail.Location = new System.Drawing.Point(772, 145);
+            this.textEmail.Name = "textEmail";
+            this.textEmail.Size = new System.Drawing.Size(100, 20);
+            this.textEmail.TabIndex = 20;
             // 
             // pictureBox3
             // 
@@ -449,19 +450,19 @@ namespace practicaDepreciacion
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtVidaU;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtValorR;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Nombre;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textEmail;
     }
 }
